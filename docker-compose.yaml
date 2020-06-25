@@ -4,6 +4,8 @@ services:
   radarr:
     image: linuxserver/radarr:arm64v8-latest
     container_name: radarr
+    network_mode: host
+    restart: always
     environment:
       - PUID=1000
       - PGID=1000
@@ -15,4 +17,3 @@ services:
       - /media/store-e-500/radarr/downloads:/downloads
     ports:
       - 7878:7878
-    restart: always
