@@ -1,0 +1,18 @@
+---
+version: "2.1"
+services:
+  radarr:
+    image: linuxserver/radarr:arm64v8-latest
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Africa/Johannesburg
+      - UMASK_SET=022 #optional
+    volumes:
+      - /media/store-e-500/radarr/config:/config
+      - /media/store-e-500/radarr/movies:/movies
+      - /media/store-e-500/radarr/downloads:/downloads
+    ports:
+      - 7878:7878
+    restart: always
